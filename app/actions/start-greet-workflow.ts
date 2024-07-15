@@ -5,6 +5,7 @@ import "server-only";
 import { WorkflowHandleWithFirstExecutionRunId } from "@temporalio/client";
 
 import { TemporalClient } from "@/temporal/client";
+import { greetTaskQueueName, greetWorkflowId } from "@/temporal/shared";
 
 export async function startGreetWorkflow(
   name: string
@@ -12,7 +13,7 @@ export async function startGreetWorkflow(
   // Start the greetWorkflow workflow
   return await TemporalClient.workflow.start("greet", {
     args: [{ name }],
-    taskQueue: "tutorial",
-    workflowId: "greetWorkflow-workflow",
+    taskQueue: greetTaskQueueName,
+    workflowId: greetWorkflowId,
   });
 }
