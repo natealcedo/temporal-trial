@@ -1,3 +1,9 @@
-import { Client } from "@temporalio/client";
+import { Client, Connection } from "@temporalio/client";
 
-export const TemporalClient = new Client();
+const connection = await Connection.connect({
+  address: process.env.TEMPORAL_GRPC_ENDPOINT,
+});
+
+export const TemporalClient = new Client({
+  connection,
+});
