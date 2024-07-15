@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+import { startGreetWorkflow } from "@/app/actions/start-greet-workflow";
+import { Button } from "@/components/ui/button";
+
 export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
@@ -76,6 +79,9 @@ export default function Home() {
           <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
           Go to nextjs.org →
         </a>
+        <form action={async () => startGreetWorkflow("hello")}>
+          <Button>Start workflow</Button>
+        </form>
       </footer>
     </div>
   );
