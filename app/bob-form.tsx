@@ -2,21 +2,21 @@
 
 import { useTransition } from "react";
 
-import { greetWorkflows } from "@/app/actions/greet-workflows";
+import { startBobWorkflow } from "@/app/actions/greet-workflows";
 import { Button } from "@/components/ui/button";
 
-export function WorkoutForm() {
+export function BobForm() {
   const [isPending, startTransition] = useTransition();
   return (
     <form
       action={() => {
         startTransition(async () => {
-          await greetWorkflows("hello");
+          await startBobWorkflow("hello");
         });
       }}
     >
       <Button type="submit" disabled={isPending}>
-        Start Greet
+        Start Bob
       </Button>
     </form>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { BobForm } from "@/app/bob-form";
 import { WorkoutForm } from "@/app/workout-form";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <WorkoutForm />
+          <BobForm />
         </div>
       </main>
     </div>
